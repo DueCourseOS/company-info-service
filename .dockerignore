@@ -1,0 +1,9 @@
+.dockerignore
+.DS_Store
+.editorconfig
+.git/
+.gitignore
+.nyc_output/
+.vscode/
+coverage/
+node_modules/

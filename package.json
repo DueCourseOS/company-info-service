@@ -1,0 +1,83 @@
+{
+  "name": "company-info-service",
+  "version": "0.0.1",
+  "private": true,
+  "author": "DueCourse",
+  "description": "...",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DueCourseOS/company-info-service.git"
+  },
+  "scripts": {
+    "ts:compile": "tsc",
+    "ts:compile-watch": "tsc --watch",
+    "dev": "nodemon -e ts,hbs,json --exec \"yarn run ts:compile && yarn run start\"",
+    "lint": "tslint -c tslint.json '{src,test}/**/*.ts'",
+    "lint:fix": "tslint --fix -c tslint.json '{src,test}/**/*.ts'",
+    "start": "node src/server.js",
+    "pretest": "tsc --p tsconfig.json",
+    "test": "nyc mocha test/ --disable-logger",
+    "precommit": "yarn run lint",
+    "prepush": "yarn run test"
+  },
+  "dependencies": {
+    "@types/boom": "^4.3.2",
+    "@types/glob": "^5.0.30",
+    "@types/hapi": "^16.0.1",
+    "@types/joi": "^10.0.1",
+    "@types/lodash": "^4.14.64",
+    "@types/nconf": "^0.0.34",
+    "@types/node": "^7.0.22",
+    "@types/winston": "^2.3.2",
+    "axios": "^0.16.1",
+    "blipp": "^2.3.0",
+    "boom": "^5.1.0",
+    "hapi": "^16.2.0",
+    "hapi-require-https": "^2.1.0",
+    "hapi-swagger": "^7.7.0",
+    "inert": "^4.2.0",
+    "joi": "^10.5.2",
+    "lodash": "^4.17.4",
+    "nconf": "^0.8.4",
+    "rollbar": "^2.0.2",
+    "vision": "^4.1.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^2.2.40",
+    "@types/supertest": "^2.0.0",
+    "chai": "^4.0.0",
+    "eslint": "^3.19.0",
+    "husky": "^0.13.4",
+    "mocha": "^3.4.2",
+    "nodemon": "1.11.0",
+    "nyc": "^11.0.1",
+    "supertest": "^3.0.0",
+    "tslint": "^5.3.2",
+    "typescript": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true
+  }
+}

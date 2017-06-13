@@ -1,24 +1,24 @@
 {
   "name": "company-info-service",
-  "version": "0.0.1",
-  "private": true,
-  "author": "DueCourse",
+  "version": "1.0.0",
+  "author": "DueCourseOS <opensource@duecourse.com>",
   "description": "...",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:DueCourseOS/company-info-service.git"
   },
   "scripts": {
-    "ts:compile": "tsc",
-    "ts:compile-watch": "tsc --watch",
     "dev": "nodemon -e ts,hbs,json --exec \"yarn run ts:compile && yarn run start\"",
-    "lint": "tslint -c tslint.json '{src,test}/**/*.ts'",
     "lint:fix": "tslint --fix -c tslint.json '{src,test}/**/*.ts'",
-    "start": "node src/server.js",
-    "pretest": "tsc --p tsconfig.json",
-    "test": "nyc mocha test/ --disable-logger",
+    "lint": "tslint -c tslint.json '{src,test}/**/*.ts'",
     "precommit": "yarn run lint",
-    "prepush": "yarn run test"
+    "prepush": "yarn run test",
+    "pretest": "tsc --p tsconfig.json",
+    "start": "node src/server.js",
+    "test": "nyc mocha test/ --disable-logger",
+    "ts:compile-watch": "tsc --watch",
+    "ts:compile": "tsc"
   },
   "dependencies": {
     "@types/boom": "^4.3.2",
